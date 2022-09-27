@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SubscriberController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', function () {
+//    return view('subscription.index');
+// });
+
+Route::match( [ 'get', 'post' ], '/', function () { return view( 'subscription.index' ); });
+
+Route::prefix( '/' )->group(function () {
+	Route::resource( '/home', SubscriberController::class );
 });
