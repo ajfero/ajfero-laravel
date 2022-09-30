@@ -2,7 +2,6 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "composer": "composer update",
         "build": "vite build"
     },
     "devDependencies": {
