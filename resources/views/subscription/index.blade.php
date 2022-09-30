@@ -55,7 +55,7 @@
                         </div>
 
                         {{-- form --}}
-                        <form class="mt-8" action="{{ route( 'home.store' ) }}" method="POST" enctype="multipart/form-data" id="subscribeForm">
+                        <form class="mt-8" action="{{ route( 'subscriber.store' ) }}" method="POST" enctype="multipart/form-data" id="subscribeForm">
                             @csrf
                             <div class="mt-6">
                                 <div class="flex justify-between mb-2">
@@ -70,8 +70,6 @@
                             @enderror
                             <button type="submit" id="buttonSubmit"></button>
                         </form>
-
-
 
                         {{-- follow me --}}
                         <div class=" px-4 mt-5">
@@ -141,13 +139,13 @@
     <script>
         const input = document.getElementById('email');
         const sendForm = document.querySelector('#buttonSubmit');
-        input.addEventListener('keyup'), (event) => {
 
+
+        input.addEventListener('keyup', (event)=>{
             if (event.keyCode === 13) {
                 sendForm.click()
             }
-        }
-
+        }) 
     </script>
 
 </body>

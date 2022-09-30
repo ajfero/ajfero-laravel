@@ -28,7 +28,7 @@
                 <b> Your subscription are Ready!</b> 
             </p>
 
-            <pre>
+            <pre class="text-center text-gray-700 dark:text-white pb-4">
 Is a pleasure for us! When the ajfero.com app is ready we will tell you!
             </pre> 
 
