@@ -15,8 +15,7 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-		$subscribers = Subscriber::all();
-		return view('subscription.index', compact('subscribers'));
+        //
     }
 
     /**
@@ -24,10 +23,9 @@ class SubscriberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(StoreSubscriberRequest $request,Subscriber $subscriber)
     {
-        $subscriber = new Subscriber();
-        return view('subscription.create', compact('subscriber'));
+        
     }
 
     /**
@@ -36,11 +34,11 @@ class SubscriberController extends Controller
      * @param  \App\Http\Requests\StoreSubscriberRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSubscriberRequest $request)
+    public function store(StoreSubscriberRequest $request, Subscriber $subscriber)
     {
-        $data = $request->all();
-        Subscriber::create($data);
-        return view('subscription.index')->with(['status'=>'success', 'color'=>'green' , 'message'=> 'Congrats you`re subscription is created successfully']);
+        $subscriber = Subscriber::create($request->all());
+        return redirect()->route('subscriber.show', compact('subscriber')); 
+        // return view('subscription.congrats', compact('subscriber'))->with(['status'=>'success', 'color'=>'green' , 'message'=> 'Congrats you`re subscription is created successfully']);
     }
 
     /**
@@ -51,7 +49,9 @@ class SubscriberController extends Controller
      */
     public function show(Subscriber $subscriber)
     {
-        //
+        $email = $subscriber->email;
+        return view('subscription.congrats', compact('email'))->with(['status'=>'success', 'color'=>'green' , 'message'=> 'Congrats you`re subscription is created successfully']);
+
     }
 
     /**

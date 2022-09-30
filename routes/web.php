@@ -27,4 +27,6 @@ Route::match( [ 'get', 'post' ], '/', function () { return view( 'subscription.i
 
 Route::prefix( '/' )->group(function () {
 	Route::resource( '/home', SubscriberController::class );
+	Route::resource( '/welcome', SubscriberController::class );
+	Route::resource( '/subscriber', SubscriberController::class );
 });
